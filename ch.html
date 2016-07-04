@@ -1,0 +1,530 @@
+<html><html><htm><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://members.lycos.co.uk/yamane/vb/vb/index.php -->
+
+<!-- REYOSCURO --> 
+<title>.::Hacked By CyberHax0rs::.</title>
+<body onload="type_text()" alink="#000000" bgcolor="#000000" vlink="#000000" link="#c0c0c0" text="#000000">
+<div align="center">
+
+
+<link rel="icon" href="http://img212.echo.cx/img212/2685/squelette0030zd.gif" type="image/x-icon">
+
+
+
+
+<body bg color="#000000" link="#000000">
+
+
+
+<SCRIPT type=text/javascript>
+
+// <![CDATA[
+
+var colour="#FF2535";
+
+var sparkles=80;
+
+
+
+/****************************
+
+*  xshot  *
+
+
+
+****************************/
+
+var x=ox=400;
+
+var y=oy=300;
+
+var swide=800;
+
+var shigh=600;
+
+var sleft=sdown=0;
+
+var tiny=new Array();
+
+var star=new Array();
+
+var starv=new Array();
+
+var starx=new Array();
+
+var stary=new Array();
+
+var tinyx=new Array();
+
+var tinyy=new Array();
+
+var tinyv=new Array();
+
+
+
+window.onload=function() { if (document.getElementById) {
+
+  var i, rats, rlef, rdow;
+
+  for (var i=0; i<sparkles; i++) {
+
+    var rats=createDiv(3, 3);
+
+    rats.style.visibility="hidden";
+
+    document.body.appendChild(tiny[i]=rats);
+
+    starv[i]=0;
+
+    tinyv[i]=0;
+
+    var rats=createDiv(5, 5);
+
+    rats.style.backgroundColor="transparent";
+
+    rats.style.visibility="hidden";
+
+    var rlef=createDiv(1, 5);
+
+    var rdow=createDiv(5, 1);
+
+    rats.appendChild(rlef);
+
+    rats.appendChild(rdow);
+
+    rlef.style.top="2px";
+
+    rlef.style.left="0px";
+
+    rdow.style.top="0px";
+
+    rdow.style.left="2px";
+
+    document.body.appendChild(star[i]=rats);
+
+  }
+
+  set_width();
+
+  sparkle();
+
+}}
+
+
+
+function sparkle() {
+
+  var c;
+
+  if (x!=ox || y!=oy) {
+
+    ox=x;
+
+    oy=y;
+
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+
+      star[c].style.left=(starx[c]=x)+"px";
+
+      star[c].style.top=(stary[c]=y)+"px";
+
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+
+      star[c].style.visibility="visible";
+
+      starv[c]=50;
+
+      break;
+
+    }
+
+  }
+
+  for (c=0; c<sparkles; c++) {
+
+    if (starv[c]) update_star(c);
+
+    if (tinyv[c]) update_tiny(c);
+
+  }
+
+  setTimeout("sparkle()", 40);
+
+}
+
+
+
+function update_star(i) {
+
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+
+  if (starv[i]) {
+
+    stary[i]+=1+Math.random()*3;
+
+    if (stary[i]<shigh+sdown) {
+
+      star[i].style.top=stary[i]+"px";
+
+      starx[i]+=(i%5-2)/5;
+
+      star[i].style.left=starx[i]+"px";
+
+    }
+
+    else {
+
+      star[i].style.visibility="hidden";
+
+      starv[i]=0;
+
+      return;
+
+    }
+
+  }
+
+  else {
+
+    tinyv[i]=50;
+
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+
+    tiny[i].style.width="2px";
+
+    tiny[i].style.height="2px";
+
+    star[i].style.visibility="hidden";
+
+    tiny[i].style.visibility="visible"
+
+  }
+
+}
+
+
+
+function update_tiny(i) {
+
+  if (--tinyv[i]==25) {
+
+    tiny[i].style.width="1px";
+
+    tiny[i].style.height="1px";
+
+  }
+
+  if (tinyv[i]) {
+
+    tinyy[i]+=1+Math.random()*3;
+
+    if (tinyy[i]<shigh+sdown) {
+
+      tiny[i].style.top=tinyy[i]+"px";
+
+      tinyx[i]+=(i%5-2)/5;
+
+      tiny[i].style.left=tinyx[i]+"px";
+
+    }
+
+    else {
+
+      tiny[i].style.visibility="hidden";
+
+      tinyv[i]=0;
+
+      return;
+
+    }
+
+  }
+
+  else tiny[i].style.visibility="hidden";
+
+}
+
+
+
+document.onmousemove=mouse;
+
+function mouse(e) {
+
+  set_scroll();
+
+  y=(e)?e.pageY:event.y+sdown;
+
+  x=(e)?e.pageX:event.x+sleft;
+
+}
+
+
+
+function set_scroll() {
+
+  if (typeof(self.pageYOffset)=="number") {
+
+    sdown=self.pageYOffset;
+
+    sleft=self.pageXOffset;
+
+  }
+
+  else if (document.body.scrollTop || document.body.scrollLeft) {
+
+    sdown=document.body.scrollTop;
+
+    sleft=document.body.scrollLeft;
+
+  }
+
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+
+    sleft=document.documentElement.scrollLeft;
+
+	sdown=document.documentElement.scrollTop;
+
+  }
+
+  else {
+
+    sdown=0;
+
+    sleft=0;
+
+  }
+
+}
+
+
+
+window.onresize=set_width;
+
+function set_width() {
+
+  if (typeof(self.innerWidth)=="number") {
+
+    swide=self.innerWidth;
+
+    shigh=self.innerHeight;
+
+  }
+
+  else if (document.documentElement && document.documentElement.clientWidth) {
+
+    swide=document.documentElement.clientWidth;
+
+    shigh=document.documentElement.clientHeight;
+
+  }
+
+  else if (document.body.clientWidth) {
+
+    swide=document.body.clientWidth;
+
+    shigh=document.body.clientHeight;
+
+  }
+
+}
+
+
+
+function createDiv(height, width) {
+
+  var div=document.createElement("div");
+
+  div.style.position="absolute";
+
+  div.style.height=height+"px";
+
+  div.style.width=width+"px";
+
+  div.style.overflow="hidden";
+
+  div.style.backgroundColor=colour;
+
+  return (div);
+
+}
+
+// ]]>
+
+   </SCRIPT>
+
+
+
+
+<p style="margin-bottom: 0cm;" align="CENTER">
+<font size="4" face="Segoe UI" color="#ffffff">
+
+<div align="center"><img src="http://img814.imageshack.us/img814/9691/95127746.png"></div>
+
+<CENTER>
+<script language="JavaScript1.2">
+
+
+var message=".:: Apendix -=- Sho0ter -=- Net_Spy ::."
+var neonbasecolor="white"
+var neontextcolor="red"
+var flashspeed=077 
+var n=0
+if (document.all||document.getElementById){
+document.write('<font color="'+neonbasecolor+'">')
+for (m=0;m<message.length;m++)
+document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+document.write('</font>')
+}
+else
+document.write(message)
+function crossref(number){
+var crossobj=document.all? eval("document.all.neonlight"+number) :
+document.getElementById("neonlight"+number)
+return crossobj
+}
+function neon(){
+//Change all letters to base color
+if (n==0){
+for (m=0;m<message.length;m++)
+//eval("document.all.neonlight"+m).style.color=neonbasecolor
+crossref(m).style.color=neonbasecolor
+}
+//cycle through and change individual letters to neon color
+crossref(n).style.color=neontextcolor
+if (n<message.length-1)
+n++
+else{
+n=0
+clearInterval(flashing)
+setTimeout("beginneon()",1500)
+return
+}
+}
+function beginneon(){
+if (document.all||document.getElementById)
+flashing=setInterval("neon()",flashspeed)
+}
+beginneon()</script>
+</CENTER>
+
+<img src="http://img13.imageshack.us/img13/404/ta2wecopy.jpg">
+
+
+<p align="center"><code><font color="#ffffff" face="Chiller" size="5">
+
+</font></code><font color="#C0C0C0" face="Chiller" size="5"><b></b></font><b><font color="#C0C0C0" face="Chiller" size="6"></font></b></p>
+</br>
+
+
+<p align="center"><strong><font color="#ff0000" face="IrisUPC" size="4">We, the masked crusaders of CyberHax0rs have again returned from the depths of the hackcave
+<br><font color=#FF0000>to bring justice to some and hope to many. We do the work that civil society is not prepared to do</font><br><br>
+<font color=#FF0000>and in doing so we transcend law and social norms</font><br><font color=#FF0000>We are here to keep the internet safe from cretins,knaves, noobs and whitehats.</font><font color="#ff0000" face="IrisUPC" size="4"> 
+</font><font color="#ff0000" face="IrisUPC" size="4"> </font>
+
+<font color="white" face="IrisUPC" size="5">(!)</font></strong></p>
+
+<p align="center"><font color="cc0000" face="" size="4">We Are Not Sorry Admin
+</br>
+
+
+</font></p>
+
+<p align="center"><font color="#FFFFFF" face="" size="5">You Call It Hacking,We Call It Security Awareness.</font></p>
+
+<script> 
+farbbibliothek = new Array(); 
+farbbibliothek[0] = new Array("#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF"); 
+farbbibliothek[1] = new Array("#00FF00","#000000","#00FF00","#00FF00"); 
+farbbibliothek[2] = new Array("#00FF00","#FF0000","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00"); 
+farbbibliothek[3] = new Array("#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF","#FF0000","#FFFFFF"); 
+farbbibliothek[4] = new Array("#FF0000","#EE0000","#DD0000","#CC0000","#BB0000","#AA0000","#990000","#880000","#770000","#660000","#550000","#440000","#330000","#220000","#110000","#000000","#110000","#220000","#330000","#440000","#550000","#660000","#770000","#880000","#990000","#AA0000","#BB0000","#CC0000","#DD0000","#EE0000"); 
+farbbibliothek[5] = new Array("#000000","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF"); 
+farbbibliothek[6] = new Array("#0000FF","#FFFF00"); 
+farben = farbbibliothek[4];
+function farbschrift() 
+{ 
+for(var i=0 ; i<Buchstabe.length; i++) 
+{ 
+document.all["a"+i].style.color=farben[i]; 
+} 
+farbverlauf(); 
+} 
+function string2array(text) 
+{ 
+Buchstabe = new Array(); 
+while(farben.length<text.length) 
+{ 
+farben = farben.concat(farben); 
+} 
+k=0; 
+while(k<=text.length) 
+{ 
+Buchstabe[k] = text.charAt(k); 
+k++; 
+} 
+} 
+function divserzeugen() 
+{ 
+for(var i=0 ; i<Buchstabe.length; i++) 
+{ 
+document.write("<span id='a"+i+"' class='a"+i+"'>"+Buchstabe[i] + "</span>"); 
+} 
+farbschrift(); 
+} 
+var a=1; 
+function farbverlauf() 
+{ 
+for(var i=0 ; i<farben.length; i++) 
+{ 
+farben[i-1]=farben[i]; 
+} 
+farben[farben.length-1]=farben[-1]; 
+ 
+setTimeout("farbschrift()",30); 
+} 
+// Zu Demonstrationszwecken***************** 
+var farbsatz=1; 
+function farbtauscher() 
+{ 
+farben = farbbibliothek[farbsatz]; 
+while(farben.length<text.length) 
+{ 
+farben = farben.concat(farben); 
+} 
+farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001)); 
+} 
+setInterval("farbtauscher()",5000); 
+text=  "; //h 
+string2array(text); 
+divserzeugen(); 
+//document.write(text);
+</script> 
+&nbsp;</p>
+
+<p align="center"><b><font color="#FF0000" face="Candara" size="4"> 
+</font><font color="#FF0000" face="Candara" size="2"> www.cyberhaxors.com </font><font color="#FF0000" face="Candara" size="4"> 
+
+</font><font color="#FF0000" face="Candara" size="2">© 2011 </font></b></p>
+
+
+
+
+
+<object data="http://flash-mp3-player.net/medias/player_mp3.swf" width="0" height="0" quality="high" volume="77" type="application/x-shockwave-flash">
+<param value="#ffffff" name="bgcolor"><br /> 
+<param value="mp3=http://www.raym0n.com/mp3/fuck you all.mp3
+&amp;autoplay=1&amp;loadingcolor=c9c14f&amp;buttoncolor=FFFFFF&amp;slidercolor=006600&loop=1&autoplay=1&volume=66" quality="high" name="FlashVars"></object>
+
+
+<FONT SIZE="4" FACE="Viner Hand ITC" COLOR=red><MARQUEE WIDTH=100% BEHAVIOR=SCROLL HSPACE=15 VSPACE=25 BGColor=Black>We Are |  CyberHax0rs Team (Apendix -=- Sho0ter -=- Net_Spy)|  CyberHax0rs Crew (Patri0t)  |</MARQUEE></FONT>
+
+
+</body>
+
+
+<!-- broken heart for ever = broken security for ever --></BODY></HTML>
+
+
+<!-- REYOSCURO --> 
